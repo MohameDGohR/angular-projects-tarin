@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
+
+import { map } from 'rxjs/operators';
+
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +14,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projectnew';
+  status = true ;
+  nameval ;
+
+  onkeyup(firstname){
+
+      console.log(firstname);
+  }
+
+
+  favouritechanged(){
+
+   console.log(this.status);
+  }
 }

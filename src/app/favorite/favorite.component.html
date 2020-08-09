@@ -1,0 +1,21 @@
+
+<span class="fa fa-3x"  
+
+[class.fa-heart]='isfavourite'
+[class.fa-heart-o] ='!isfavourite'
+
+(click)="onfavouriteclick()"
+>
+
+</span>
+
+<div>
+{{Employee.name | uppercase }}
+{{ Employee.salary | currency:'usd':true}}
+<br/>
+{{Employee.hiringdate | date:'shortDate'}}
+<br/>
+{{ news | summary}}
+
+
+</div>

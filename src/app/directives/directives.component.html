@@ -1,0 +1,72 @@
+<ul>
+  <li *ngFor="let item of Person; let i =index">
+   {{i+1}} - {{item}}
+  </li>
+</ul>
+
+<br/>
+
+<ul *ngFor="let p of PeopleCountry">
+  <li> {{ p.country}} </li>
+  <ul>
+    <li *ngFor="let item of p.names"> {{item.name}}</li>
+  </ul>
+</ul>
+
+
+<br/>
+<br/>
+<button (click)="onadd()"> add </button>
+<input type="text" [(ngModel)]="value1" class="form-control">
+
+<br/>
+<!--
+<div *ngIf="courses.length > 0; then temp else temp0">
+
+</div>
+
+<ng-template #temp>
+
+  <ul *ngFor="let course of courses ;  trackBy: trackbycourse ">
+    <li><button (click)="onremove(course)"> remove</button>  {{course.CourseName}}    </li>
+  </ul>-->
+<!--</ng-template>
+<ng-template #temp0>
+  no data yet
+</ng-template>-->
+<!--<div  [hidden]="courses.length === 0">
+  
+  <ul *ngFor="let course of courses ;  trackBy: trackbycourse ">
+    <li><button (click)="onremove(course)"> remove</button>  {{course.CourseName}}    </li>
+  </ul>
+</div>
+
+<div [hidden]="courses.length  > 0">
+ no data yet here 
+</div>
+-->
+
+<ul class="nav nav-pills justify-content-end mr-5">
+ 
+  <li class="nav-item"  > 
+     <a   (click)="setview('certifications') " class="nav-link" [class.active]="default === 'certifications'"> certification </a> </li>
+  <li class="nav-item"   >  
+    <a    (click)="setview('courses')"  class="nav-link" [class.active]="default === 'courses'"> courses </a> </li>
+</ul>
+
+
+
+<div [ngSwitch]="default">
+  <div *ngSwitchCase="'courses'"> list of courses</div>
+  <div *ngSwitchCase="'certifications'">list of certificates</div>
+ 
+</div>
+
+
+<button (click)="mapcolor()"
+
+[ngStyle]="{'background-color':WhatColor?'red':'blue'}"
+
+> hello </button>
+
+<input type="text" class="form-control-sm"  InputFormate [formate]="'touppercase'" >

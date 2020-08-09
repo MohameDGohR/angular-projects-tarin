@@ -1,0 +1,29 @@
+<!-- <ul class="list-group">
+    <li *ngFor="let post of posts" class="list-group-item">
+
+        {{post.title}}
+    </li>
+</ul> --> 
+<br/> <br/> 
+<input type="text" class="form-control-lg " #title (keyup.enter)="createposts(title)">
+<br/><br/>
+<table class="table table-bordered table-hover table-active">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Url</th>
+        <th> </th>
+        <th></th>
+    </tr>
+    <tbody>
+        <tr class="table-light" *ngFor="let post of posts " (click)="TakeData(post)">
+            <td> {{post.id}}     </td>
+            <td> {{post.title}}   </td>
+            <td> {{post.url}}   </td>
+            <td> <button class="btn btn-outline-warning" (click)="updatepost(post,title)" >
+                 update</button> </td>
+            <td> <button class="btn btn-outline-danger"    (click)="deletePosts(post)"
+                  > delete</button> </td>
+        </tr>
+    </tbody>
+</table>

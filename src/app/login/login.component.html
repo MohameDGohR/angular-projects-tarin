@@ -1,0 +1,54 @@
+
+<form [formGroup]="form"  (ngSubmit)="login()">
+  <div *ngIf="form.errors" class="alert alert-danger">
+   user name or password incorrect 
+  </div>
+  
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" 
+      formControlName="email"
+      id="email"
+       >
+
+       <div *ngIf="email.pending">
+
+        <img 
+        class="img img-thumbnail " height="50" width="50"
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+         >
+       </div>
+
+      <div  *ngIf="email.touched && email.invalid" class="alert alert-danger">
+        <div  *ngIf="email.errors.CheckUniqness" class="alert alert-danger">
+         
+          Email already exist
+         </div>
+       </div>
+
+
+      
+
+
+       <div *ngIf="email.errors?.email" class="alert alert-danger">
+       <p>
+           you must enter mail
+       </p>
+       </div>
+
+       <div *ngIf="email.errors?.range" class="alert alert-danger">
+        <p>
+           your range must between 10 and 20
+        </p>
+        </div>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password"
+      formControlName="password"
+      class="form-control" id="exampleInputPassword1">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
